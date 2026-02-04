@@ -38,7 +38,6 @@ Por favor, escribe en impersonal las respuestas.
 
 ### Respuesta
 
-
 ## 6. En Java, ¿A quiénes se pueden aplicar los modificadores `public` o `private`?
 
 ### Respuesta
@@ -54,6 +53,7 @@ Por favor, escribe en impersonal las respuestas.
 ### Respuesta
 
 
+
 ## 9. ¿Qué son los métodos "getter" y "setter" en los lenguajes orientados a objetos?
 
 ### Respuesta
@@ -63,16 +63,13 @@ Por favor, escribe en impersonal las respuestas.
 
 ### Respuesta
 
-
 ## 11. ¿Qué diferencia hay entre **miembro de instancia** y **miembro de clase**? ¿Los miembros de clase también se pueden ocultar?
 
 ### Respuesta
 
-
 ## 12. Brevemente: ¿Tiene sentido que los constructores sean privados?
 
 ### Respuesta
-
 
 ## 13. ¿Cómo se indican los **miembros de clase** en Java? Pon un ejemplo, en la clase `Punto` definida anteriormente, para que incluya miembros de clase que permitan saber cuáles son los valores `x` e `y` máximos que se han establecido en todos los puntos que se hayan creado hasta el momento.
 
@@ -98,11 +95,9 @@ Por favor, escribe en impersonal las respuestas.
 
 ### Respuesta
 
-
 ## 18. ¿Es recomendable incluir métodos "setter" siempre y como convención?
 
 ### Respuesta
-
 
 ## 19. ¿La clase `String` en Java es mutable o inmutable? ¿Qué ocurre al concatenar dos cadenas? ¿Qué debemos hacer si vamos a hacer una operación que implique concatenar muchas veces para construir paso a paso una cadena muy larga?
 
@@ -117,7 +112,6 @@ Por favor, escribe en impersonal las respuestas.
 ## 21. ¿Qué son las clases "wrapper" en un lenguaje de programación orientado a objetos? ¿Cómo se hace? ¿Es un proceso automático? ¿Qué ventajas tienen? ¿Todos los lenguajes orientados a objetos tienen tipos primitivos y necesitan wrappers? 
 
 ### Respuesta
-
 
 ## 22. ¿En POO qué es un **tipo de dato enumerado**? ¿En Java, un tipo de dato enumerado es una clase? ¿Qué ventajas tienen en términos de encapsulación los enumerados en Java?
 
