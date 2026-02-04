@@ -54,6 +54,7 @@ Por favor, escribe en impersonal las respuestas.
 ### Respuesta
 
 
+
 ## 9. ¿Qué son los métodos "getter" y "setter" en los lenguajes orientados a objetos?
 
 ### Respuesta
