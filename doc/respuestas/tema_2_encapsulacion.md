@@ -326,7 +326,7 @@ Sí, en Java, los enumerados se implementan como clases especiales que extienden
 En resumen, los enumerados en Java ofrecen control, seguridad y flexibilidad al asociar valores constantes con comportamientos específicos.
 
 
-## 23. Crea un tipo enumerado en Java que se llame `Mes`, con doce posibles instancias y que además proporcione métodos para obtener cuántos días tiene ese mes, el ordinal de ese mes en el año (1-12), empleando atributos privados y constructores del tipo enumerado. Añade además cuatro métodos para devolver si ese mes tiene algunos días de invierno, primavera, verano u otoño, indicando con un booleano el hemisferio (norte o sur, parámetro `enHemisferioNorte`). Es decir: `esDePrimavera(boolean esHemisferioNorte)`, `esDeVerano(boolean esHemisferioNorte)`, `esDeOtoño(boolean esHemisferioNorte)`, `esDeInvierno(boolean esHemisferioNorte)`
+## 23. Crea un tipo enumerado en Java que se llame `Mes`, con doce posibles instancias y que además proporcione métodos para obtener cuántos días tiene ese mes, el ordinal de ese mes en el año (1-12), empleando atributos privados y constructores del tipo enumerado.
 
 ### Respuesta
 public enum Mes {
@@ -343,23 +343,23 @@ public enum Mes {
 
     public int getDias() { return dias; }
     public int getOrdinal() { return ordinal; }
-
-    public boolean esDePrimavera(boolean norte) { return (norte ? this == MARZO || this == ABRIL || this == MAYO : this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE); }
-    public boolean esDeVerano(boolean norte) { return (norte ? this == JUNIO || this == JULIO || this == AGOSTO : this == DICIEMBRE || this == ENERO || this == FEBRERO); }
-    public boolean esDeOtoño(boolean norte) { return (norte ? this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE : this == MARZO || this == ABRIL || this == MAYO); }
-    public boolean esDeInvierno(boolean norte) { return (norte ? this == DICIEMBRE || this == ENERO || this == FEBRERO : this == JUNIO || this == JULIO || this == AGOSTO); }
 }
-Explicación:
-•	Atributos privados: dias y ordinal para cada mes.
-•	Métodos: getDias() y getOrdinal() devuelven los valores correspondientes.
-•	Los métodos esDePrimavera(), esDeVerano(), esDeOtoño(), y esDeInvierno() usan el parámetro norte para determinar si un mes pertenece a una estación según el hemisferio.
-Ejemplo de uso:
-public class Main {
-    public static void main(String[] args) {
-        Mes mes = Mes.MARZO;
-        System.out.println(mes.getDias());  // Días en marzo
-        System.out.println(mes.getOrdinal());  // Ordinal de marzo
-        System.out.println(mes.esDePrimavera(true));  // Primavera en hemisferio norte
-        System.out.println(mes.esDeInvierno(false));  // Invierno en hemisferio sur
-    }
+
+## 24. Añade a la clase `Mes` del ejercicio anterior cuatro métodos para devolver si ese mes tiene algunos días de invierno, primavera, verano u otoño, indicando con un booleano el hemisferio (norte o sur, parámetro `enHemisferioNorte`). Es decir: `esDePrimavera(boolean esHemisferioNorte)`, `esDeVerano(boolean esHemisferioNorte)`, `esDeOtoño(boolean esHemisferioNorte)`, `esDeInvierno(boolean esHemisferioNorte)`
+
+### Respuesta
+public boolean esDePrimavera(boolean enHemisferioNorte) { 
+    return (enHemisferioNorte ? this == MARZO || this == ABRIL || this == MAYO : this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE); 
+}
+
+public boolean esDeVerano(boolean enHemisferioNorte) { 
+    return (enHemisferioNorte ? this == JUNIO || this == JULIO || this == AGOSTO : this == DICIEMBRE || this == ENERO || this == FEBRERO); 
+}
+
+public boolean esDeOtoño(boolean enHemisferioNorte) { 
+    return (enHemisferioNorte ? this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE : this == MARZO || this == ABRIL || this == MAYO); 
+}
+
+public boolean esDeInvierno(boolean enHemisferioNorte) { 
+    return (enHemisferioNorte ? this == DICIEMBRE || this == ENERO || this == FEBRERO : this == JUNIO || this == JULIO || this == AGOSTO); 
 }
