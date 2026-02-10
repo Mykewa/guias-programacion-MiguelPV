@@ -345,21 +345,22 @@ public enum Mes {
     public int getOrdinal() { return ordinal; }
 }
 
+
 ## 24. Añade a la clase `Mes` del ejercicio anterior cuatro métodos para devolver si ese mes tiene algunos días de invierno, primavera, verano u otoño, indicando con un booleano el hemisferio (norte o sur, parámetro `enHemisferioNorte`). Es decir: `esDePrimavera(boolean esHemisferioNorte)`, `esDeVerano(boolean esHemisferioNorte)`, `esDeOtoño(boolean esHemisferioNorte)`, `esDeInvierno(boolean esHemisferioNorte)`
 
 ### Respuesta
-public boolean esDePrimavera(boolean enHemisferioNorte) { 
-    return (enHemisferioNorte ? this == MARZO || this == ABRIL || this == MAYO : this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE); 
+public boolean esDePrimavera(boolean enHemisferioNorte) {
+    return (enHemisferioNorte ? this == MARZO || this == ABRIL || this == MAYO : this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE);
 }
 
-public boolean esDeVerano(boolean enHemisferioNorte) { 
-    return (enHemisferioNorte ? this == JUNIO || this == JULIO || this == AGOSTO : this == DICIEMBRE || this == ENERO || this == FEBRERO); 
+public boolean esDeVerano(boolean enHemisferioNorte) {
+    return (enHemisferioNorte ? this == JUNIO || this == JULIO || this == AGOSTO : this == DICIEMBRE || this == ENERO || this == FEBRERO);
 }
 
-public boolean esDeOtoño(boolean enHemisferioNorte) { 
-    return (enHemisferioNorte ? this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE : this == MARZO || this == ABRIL || this == MAYO); 
+public boolean esDeOtoño(boolean enHemisferioNorte) {
+    return (enHemisferioNorte ? this == SEPTIEMBRE || this == OCTUBRE || this == NOVIEMBRE : this == MARZO || this == ABRIL || this == MAYO);
 }
 
-public boolean esDeInvierno(boolean enHemisferioNorte) { 
-    return (enHemisferioNorte ? this == DICIEMBRE || this == ENERO || this == FEBRERO : this == JUNIO || this == JULIO || this == AGOSTO); 
+public boolean esDeInvierno(boolean enHemisferioNorte) {
+    return (enHemisferioNorte ? this == DICIEMBRE || this == ENERO || this == FEBRERO : this == JUNIO || this == JULIO || this == AGOSTO);
 }
