@@ -42,7 +42,6 @@ La programación estructurada es un paradigma que organiza el código en bloques
 La programación modular es una evolución de la estructurada que divide un programa en módulos independientes y reutilizables. Cada módulo encapsula una funcionalidad específica y puede ser desarrollado, probado y mantenido por separado, facilitando la escalabilidad del software.
 
 
-
 ## 4. ¿Qué tres elementos definen a un objeto en programación orientada a objetos?
 
 ### Respuesta
@@ -129,10 +128,11 @@ La JVM (Java Virtual Machine) es una máquina virtual que interpreta el bytecode
 new crea una nueva instancia de una clase, asignando memoria y llamando a su constructor.
 ¿Qué es un constructor?
 Es un método especial que se ejecuta al crear un objeto, inicializando sus atributos. Si no se define, Java usa un constructor por defecto.
-Ejemplo en la clase Punto:
-Punto(int x, int y) {  
-    this.x = x;  
-    this.y = y;  
+Ejemplo constructor:
+Empleado(String DNI, String nombre, String apellidos) {  
+    this.DNI = DNI;  
+    this.nombre = nombre;
+    this.apellidos = apellidos;  
 }
 
 
@@ -141,12 +141,15 @@ Punto(int x, int y) {
 ### Respuesta
 La referencia this en Java hace referencia al objeto actual. Se utiliza dentro de un método o constructor para acceder a los atributos y métodos de la instancia en la que se está ejecutando.
 No se llama igual en todos los lenguajes. En Python se usa self y en JavaScript, aunque también se usa this, su comportamiento puede variar dependiendo del contexto.
+Punto(int x, int y) {  
+    this.x = x;  
+    this.y = y;  
+}
 
 
 ## 13. Añade ahora otro nuevo método que se llame `distanciaA`, que reciba un `Punto` como parámetro y calcule la distancia entre `this` y el punto proporcionado
 
 ### Respuesta
-Aquí tienes la clase Punto con el nuevo método distanciaA, que calcula la distancia entre el objeto actual (this) y otro Punto proporcionado como parámetro:
 class Punto {
     int x, y;
 
@@ -186,7 +189,6 @@ Ejemplo
 ### Respuesta
 El método toString() en Java es un método especial que se encuentra en la clase base Object, y se utiliza para obtener una representación en forma de cadena de texto (String) del objeto. Este método puede ser sobrescrito en una clase para proporcionar una descripción más significativa del objeto cuando se convierte a cadena.
 El método toString() existe en otros lenguajes de programación, pero la implementación y el propósito exacto pueden variar. Por ejemplo, en C# también existe un método ToString() con una funcionalidad similar.
-Aquí tienes un ejemplo de cómo sobrescribir el método toString() en la clase Punto para que devuelva una representación más legible del objeto:
 class Punto {
     int x, y;
 
@@ -219,7 +221,7 @@ En resumen, los structs son más simples y no ofrecen las ventajas de la program
 ## 17. Quitemos un poco de magia a todo esto: ¿Como se podría “emular”, con `struct` en C, la clase `Punto`, con su función para calcular la distancia al origen? ¿Qué ha pasado con `this`?
 
 ### Respuesta
-Para emular la clase Punto con un struct en C, tendríamos que usar un struct para almacenar los atributos (como x e y) y luego crear una función que opere sobre ese struct, como el método calculaDistanciaAOrigen() en Java. Aquí te muestro cómo se podría hacer:
+Para emular la clase Punto con un struct en C, tendríamos que usar un struct para almacenar los atributos (como x e y) y luego crear una función que opere sobre ese struct, como el método calculaDistanciaAOrigen() en Java. 
 #include 
 #include 
 

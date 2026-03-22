@@ -118,7 +118,6 @@ Explicación
 Los atributos x e y son private, por lo que no pueden ser accedidos directamente desde otras clases. Sin embargo, dentro de la clase Punto, cualquier objeto Punto puede acceder a los atributos privados de otro objeto Punto, ya que ambos pertenecen a la misma clase.
 
 
-
 ## 9. ¿Qué son los métodos "getter" y "setter" en los lenguajes orientados a objetos?
 
 ### Respuesta
@@ -135,6 +134,7 @@ Propósito:
 ### Respuesta
 No tiene que ver con “hackear” si no con protección de datos en general, seguridad.
 
+
 ## 11. ¿Qué diferencia hay entre **miembro de instancia** y **miembro de clase**? ¿Los miembros de clase también se pueden ocultar?
 
 ### Respuesta
@@ -144,11 +144,11 @@ No tiene que ver con “hackear” si no con protección de datos en general, se
 Sí, los miembros de clase también pueden ser ocultados mediante modificadores de acceso (private, protected, public), lo que controla su visibilidad y acceso, de la misma manera que los miembros de instancia.
 
 
-
 ## 12. Brevemente: ¿Tiene sentido que los constructores sean privados?
 
 ### Respuesta
 Sí, tiene sentido que los constructores sean privados en ciertos casos. Esto se utiliza comúnmente en patrones de diseño como el Singleton, donde se quiere evitar que se creen múltiples instancias de una clase. Al hacer el constructor privado, se restringe la creación de objetos fuera de la propia clase, controlando así la instancia.
+
 
 ## 13. ¿Cómo se indican los **miembros de clase** en Java? Pon un ejemplo, en la clase `Punto` definida anteriormente, para que incluya miembros de clase que permitan saber cuáles son los valores `x` e `y` máximos que se han establecido en todos los puntos que se hayan creado hasta el momento.
 
@@ -192,7 +192,6 @@ public static Punto crearPuntoRedondeado(double x, double y) {
 Explicación:
 •	El método crearPuntoRedondeado es estático (static), lo que permite llamarlo sin tener que instanciar un objeto de la clase Punto.
 •	Usa Math.round(x) y Math.round  para redondear las coordenadas x e y al entero más cercano antes de crear el nuevo objeto Punto.
-
 
 
 ## 15. Cambia la implementación de `Punto`. En vez de dos `double`, emplea un array interno de dos posiciones, intentando no modificar la interfaz pública de la clase.
@@ -254,7 +253,6 @@ Ventajas de una clase inmutable:
 •	Facilidad de uso: Pueden compartirse sin riesgo de alteración accidental.
 
 
-
 ## 18. ¿Es recomendable incluir métodos "setter" siempre y como convención?
 
 ### Respuesta
@@ -265,7 +263,6 @@ Razones para no incluirlos siempre:
 3.	Clases inmutables: En clases inmutables, no se usan setters porque el estado de los objetos no cambia después de su creación.
 Conclusión:
 Los setters deben incluirse solo cuando sea necesario y no como una regla general. Es importante evaluar si realmente se necesita modificar un atributo tras la creación del objeto.
-
 
 
 ## 19. ¿La clase `String` en Java es mutable o inmutable? ¿Qué ocurre al concatenar dos cadenas? ¿Qué debemos hacer si vamos a hacer una operación que implique concatenar muchas veces para construir paso a paso una cadena muy larga?

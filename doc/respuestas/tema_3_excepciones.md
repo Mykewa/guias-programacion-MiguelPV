@@ -79,7 +79,6 @@ Un programador las usa para:
 ## 3. Reescribe el mismo ejemplo de raiz, pero en Java, metiendo ese método en una clase `Calculadora` y llama a dicho método desde el método `main`, mostrando cómo se puede controlar desde fuera.
 
 ### Respuesta
-Aquí tienes el ejemplo en Java, usando excepciones para manejar el error:
 class Calculadora {
     public static double raiz(double x) throws IllegalArgumentException {
         if (x < 0) {
@@ -291,8 +290,6 @@ public void leerConfiguracion() throws IOException {
 ## 13. Pon un ejemplo en Java de firma de método que incluya `throws`, de una función que abre un fichero pero que declara que no le interesa menejar la excepción de si el fichero no existe, sino que se propague hacia arriba. Eso sí, acuérdate del `finally`.
 
 ### Respuesta
-Aquí tienes un ejemplo de una función en Java que abre un archivo, declara que no quiere manejar la excepción si el archivo no existe, y permite que esta excepción se propague hacia arriba, todo mientras se asegura de ejecutar un bloque finally para cerrar recursos:
-
 import java.io.*;
 
 public class Main {
