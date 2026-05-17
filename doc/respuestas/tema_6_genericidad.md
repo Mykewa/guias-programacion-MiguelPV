@@ -100,26 +100,91 @@ Esto provoca tres grandes inconvenientes:
 ## 4. Vamos entonces con mecanismos de mejora de la programación genérica ¿Qué son los **parámetros de tipo**? 
 
 ### Respuesta
+Los parámetros de tipo (representados típicamente por letras mayúsculas entre diamantes, como <T>, <E>, <K>, <V>) son marcadores de posición o "comodines" que se utilizan en la declaración de clases, interfaces o métodos genéricos en Java.
+
+Sirven para indicar que esa estructura va a trabajar con un tipo de objeto específico, pero dejan la decisión de qué objeto exacto será para el momento en que se instancie o se llame.
+
+Explicación práctica (el "por qué" es una mejora):
+Imagínate que haces una clase Caja:
+
+public class Caja<T> {
+    private T contenido;
+    
+    public void meter(T item) { 
+        this.contenido = item; 
+    }
+}
+Aquí, <T> es el parámetro de tipo. Es una incógnita. La clase no sabe qué es T.
+
+Cuando en tu main haces:
+Caja<String> miCaja = new Caja<>();
+Ahí le estás diciendo al compilador: "Oye, donde veas una T en esa clase, trátala como un String". (Ese String concreto que le pasas se llama argumento de tipo).
+
+¿Por qué son un "mecanismo de mejora"?:
+
+    - Reutilización masiva de código: Escribes la lógica de tu Caja o tu Lista una sola vez y te sirve mágicamente para guardar Strings, Profesores o Integers. No tienes que crear una CajaString, una CajaProfesor, etc.
+
+    - Seguridad de tipos (Type Safety): Si creas una Caja<String>, el compilador subraya en rojo si intentas meterle un número. Te salva de errores en tiempo de ejecución.
+
+    - Eliminan los "Casteos" forzados: Antes de que existieran los genéricos, todo se guardaba como Object y al sacarlo tenías que transformarlo a la fuerza haciendo (String) miCaja.sacar(), lo cual era muy propenso a errores.
 
 
 ## 5. En Java existe "generics", en C++ existen "templates". Pon un ejemplo de uso de programación genérica en ambos, instanciando una lista o vector dinámico que solo admite `String`. Introduce valores, y luego haz un recorrido de ellos mostrando cómo cada elemento es del tipo concreto con seguridad.
 
 ### Respuesta
-Los parámetros de tipo son identificadores (funcionan como "comodines" o marcadores de posición) que representan un tipo de dato abstracto dentro de una clase, interfaz o función genérica. Su objetivo es permitir que el código trabaje con cualquier tipo de dato sin perder la seguridad de tipos (type safety).
+Tanto los Generics en Java como los Templates en C++ sirven para el mismo propósito fundamental: crear código reutilizable y seguro en cuanto a tipos (Type Safety). A continuación se muestra cómo instanciar una colección dinámica de cadenas, añadir valores y recorrerlos sin necesidad de hacer castings, demostrando la seguridad de tipos.
 
-¿Cómo se utilizan?
-    - En Java, se representan habitualmente entre diamantes, como <T>, <E> o <K, V>.
+1. Ejemplo en JAVA (Generics)
+En Java utilizamos la interfaz genérica List<T> y su implementación ArrayList<T>.
 
-    - En C++, se utilizan mediante plantillas, como template <typename T>.
+import java.util.ArrayList;
+import java.util.List;
 
-El tipo de dato concreto (por ejemplo, String, Integer o Soldado) no se define al escribir la clase original, sino en el momento exacto en el que se instancia la estructura. El compilador se encarga de sustituir ese parámetro por el tipo real y verificar que todo sea correcto en tiempo de compilación.
+public class EjemploGenerics {
+    public static void main(String[] args) {
+        // 1. Instanciación: forzamos a que SOLO admita String
+        List<String> listaNombres = new ArrayList<>();
 
-Ventajas principales:
-    -Eliminan los casts manuales: Al recuperar un dato de la estructura genérica, el programa ya sabe exactamente de qué tipo es (ya no devuelve un Object).
+        // 2. Introducimos valores
+        listaNombres.add("Ana");
+        listaNombres.add("Luis");
+        // listaNombres.add(10); // ERROR DE COMPILACIÓN: Type Safety en acción
 
-    - Prevención de errores: Las incompatibilidades de tipos se detectan al compilar el código, evitando que el programa falle en tiempo de ejecución.
+        // 3. Recorrido seguro
+        for (String nombre : listaNombres) {
+            // Como el compilador garantiza que 'nombre' es un String, 
+            // podemos usar métodos exclusivos de la clase String directamente.
+            System.out.println(nombre.toUpperCase()); 
+        }
+    }
+}
 
-    - Reutilización y limpieza: Permiten escribir un único algoritmo (como ordenar) o estructura (como una lista) que sirva automáticamente para cualquier tipo de objeto, haciendo el código mucho más legible.
+2. Ejemplo en C++ (Templates)
+En C++ utilizamos la clase template std::vector<T> de la Standard Template Library (STL).
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+    // 1. Instanciación: forzamos a que SOLO admita std::string
+    std::vector<std::string> vectorNombres;
+
+    // 2. Introducimos valores
+    vectorNombres.push_back("Ana");
+    vectorNombres.push_back("Luis");
+    // vectorNombres.push_back(10); // ERROR DE COMPILACIÓN: Type Safety
+
+    // 3. Recorrido seguro (usamos const & para eficiencia, típico en C++)
+    for (const std::string& nombre : vectorNombres) {
+        // Al igual que en Java, sabemos con certeza que es un string.
+        // Podemos usar métodos de std::string sin problema.
+        std::cout << nombre.length() << " letras" << std::endl;
+    }
+
+    return 0;
+}
 
 
 ## 6. Sobre el funcionamiento de la programación genérica. ¿Qué hace el compilador cuando se instancia una clase que tiene parámetros de tipo? ¿Hace lo mismo C++ y Java? ¿Qué es el "type erasure" de Java y la "instanciación de plantillas" de C++?
